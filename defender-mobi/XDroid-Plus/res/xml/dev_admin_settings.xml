@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory android:key="category_enable" android:title="当前状态">
+        <CheckBoxPreference
+            android:key="@string/policy_switch_key"
+            android:summary="未启动"
+            android:title="防盗策略" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:key="category_pwd"
+        android:title="密码强度" >
+        <ListPreference
+            android:dialogTitle="选择密码类型"
+            android:entries="@array/pwd_qualities"
+            android:entryValues="@array/pwd_qualities_val"
+            android:key="@string/pwd_quality_key"
+            android:summary="选择密码中包含的字符类型"
+            android:title="密码类型" />
+
+        <EditTextPreference
+            android:id="@+id/pwd_min_length"
+            android:dialogTitle="最小密码长度"
+            android:key="@string/pwd_min_length_key"
+            android:negativeButtonText="取消"
+            android:positiveButtonText="确定"
+            android:summary="设置密码的最小长度"
+            android:title="密码长度" />
+        <EditTextPreference
+            android:dialogTitle="重置密码为"
+            android:key="@string/reset_pwd_key"
+            android:negativeButtonText="取消"
+            android:positiveButtonText="确定"
+            android:title="重置密码" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:key="category_wipedata"
+        android:title="清除数据" >
+        <EditTextPreference
+            android:dialogTitle="设置最多尝试次数为"
+            android:key="@string/max_pwd_attempts_key"
+            android:negativeButtonText="取消"
+            android:positiveButtonText="确定"
+            android:summary="超过此值自动清除手机数据"
+            android:title="最大密码错误次数" />
+        <EditTextPreference android:dialogTitle="设置远程指令为" android:negativeButtonText="取消" android:positiveButtonText="确定" android:title="远程指令" android:summary="接收到此指令后清除系统数据" android:key="@string/remote_cmd_key"/>
+    </PreferenceCategory>
+
+</PreferenceScreen>

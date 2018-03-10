@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    <!--
+	<RelativeLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:background="#0ff000"
+	    >
+	    <Button 
+	        android:id="@+id/set_password"
+	        android:layout_gravity="center_vertical"
+	        android:layout_alignParentLeft="true"
+	        android:layout_marginLeft="4dp"
+	        android:layout_marginTop="4dp"
+	        android:layout_marginBottom="2dp"
+	        android:layout_height="40dp"
+	        android:layout_width="wrap_content"
+	        android:text="设置密码"
+	        />
+
+	    <TextView
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_centerInParent="true"
+	        android:textSize="20dp"
+	        android:text="安全策略"
+	        />
+	    
+	   	<Button 
+	        android:id="@+id/enable_or_disable"
+	        android:layout_gravity="center_vertical"
+	        android:layout_alignParentRight="true"
+	        android:layout_marginRight="4dp"
+	        android:layout_marginTop="4dp"
+	        android:layout_marginBottom="2dp"
+	        android:layout_height="40dp"
+	        android:layout_width="wrap_content"
+	        android:text="点击激活"
+	        />
+	</RelativeLayout>
+    -->
+	<ListView android:id="@android:id/list"  
+        android:layout_width="match_parent"   
+        android:layout_height="wrap_content"
+        />
+</LinearLayout>

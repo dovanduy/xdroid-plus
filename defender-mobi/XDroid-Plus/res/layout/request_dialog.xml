@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/LinearLayout01"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/request_from"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10sp"
+        android:gravity="center"
+        android:text="@string/permission_request_format"
+        android:textSize="18sp" >
+    </TextView>
+
+    <CheckBox
+        android:id="@+id/need_remember"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/radio_btn_hint" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20sp"
+        android:gravity="center_horizontal" >
+
+        <Button
+            android:id="@+id/YesButton"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/text_yes_btn"
+            android:width="100sp" >
+        </Button>
+
+        <Button
+            android:id="@+id/NoButton"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/text_no_btn"
+            android:width="100sp" >
+        </Button>
+
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+   
+    <item 
+        android:id="@+id/menu_disable"
+        android:orderInCategory="1"
+        android:title="@string/menuDisableWall" />
+    
+    <item 
+        android:id="@+id/menu_apply"
+        android:orderInCategory="2"
+        android:title="@string/menuApplyRules" />
+
+</menu>

@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:mainitem="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <LinearLayout
+        android:id="@+id/mainscreen_list"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@drawable/mainscreen_list_bg_bottom"
+        android:orientation="vertical"
+        android:visibility="visible" >
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1.0px"
+            android:background="@color/drawer_line" />
+
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="0.0dip"
+            android:layout_weight="1.0" >
+
+            <isc.whu.defender.MainListItem
+                android:id="@+id/mainscreen_list_malware_detection"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="@drawable/list_line_selector"
+                mainitem:_icon="@drawable/icon_scan"
+                mainitem:_summary="@string/summary_malware_detection"
+                mainitem:_title="@string/title_malware_detection" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|center"
+                android:layout_marginRight="15.0dip"
+                android:src="@drawable/arrow_right" />
+        </FrameLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1.0px"
+            android:background="@color/drawer_line" />
+
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="0.0dip"
+            android:layout_weight="1.0" >
+
+            <isc.whu.defender.MainListItem
+                android:id="@+id/mainscreen_list_app_management"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="@drawable/list_line_selector"
+                mainitem:_icon="@drawable/icon_app_management"
+                mainitem:_summary="@string/summary_app_management"
+                mainitem:_title="@string/title_app_management" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|center"
+                android:layout_marginRight="15.0dip"
+                android:src="@drawable/arrow_right" />
+        </FrameLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1.0px"
+            android:background="@color/drawer_line" />
+
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="0.0dip"
+            android:layout_weight="1.0" >
+
+            <isc.whu.defender.MainListItem
+                android:id="@+id/mainscreen_list_beh_logger"
+                style="@style/listview"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="@drawable/list_line_selector"
+                mainitem:_icon="@drawable/icon_beh_logger"
+                mainitem:_summary="@string/summary_beh_logger"
+                mainitem:_title="@string/title_beh_logger" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|center"
+                android:layout_marginRight="15.0dip"
+                android:src="@drawable/arrow_right" />
+        </FrameLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1.0px"
+            android:background="@color/drawer_line" />
+
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="0.0dip"
+            android:layout_weight="1.0" >
+
+            <isc.whu.defender.MainListItem
+                android:id="@+id/mainscreen_list_traffic_monitor"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="@drawable/list_line_selector"
+                mainitem:_icon="@drawable/icon_traffic_monitor"
+                mainitem:_summary="@string/summary_traffic_monitor"
+                mainitem:_title="@string/title_traffic_monitor" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|center"
+                android:layout_marginRight="15.0dip"
+                android:src="@drawable/arrow_right" />
+        </FrameLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1.0px"
+            android:background="@color/drawer_line" />
+
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="0.0dip"
+            android:layout_weight="1.0" >
+
+            <isc.whu.defender.MainListItem
+                android:id="@+id/mainscreen_list_system_setttings"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:background="@drawable/list_line_selector"
+                mainitem:_icon="@drawable/icon_settings"
+                mainitem:_summary="@string/summary_system_setttings"
+                mainitem:_title="@string/title_system_setttings" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|center"
+                android:layout_marginRight="15.0dip"
+                android:src="@drawable/arrow_right" />
+        </FrameLayout>
+    </LinearLayout>
+
+</FrameLayout>

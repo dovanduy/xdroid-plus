@@ -1,0 +1,86 @@
+package isc.whu.defender.xmonitor;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import de.robv.android.xposed.XposedBridge;
+
+import android.telephony.SmsMessage;
+import android.util.Log;
+
+public class XSmsManager extends XHook {
+	private Methods mMethod;
+
+	private XSmsManager(Methods method, String restrictionName) {
+		super(restrictionName, method.name(), null);
+		mMethod = method;
+	}
+
+	public String getClassName() {
+		return "android.telephony.SmsManager";
+	}
+
+	// @formatter:off
+
+	// public static ArrayList<SmsMessage> getAllMessagesFromIcc()
+	// public void sendDataMessage(String destinationAddress, String scAddress,
+	// short destinationPort, byte[] data, PendingIntent sentIntent,
+	// PendingIntent deliveryIntent)
+	// public void sendMultipartTextMessage(String destinationAddress, String
+	// scAddress, ArrayList<String> parts, ArrayList<PendingIntent> sentIntents,
+	// ArrayList<PendingIntent> deliveryIntents)
+	// public void sendTextMessage(String destinationAddress, String scAddress,
+	// String text, PendingIntent sentIntent, PendingIntent deliveryIntent)
+	// frameworks/base/telephony/java/android/telephony/SmsManager.java
+	// http://developer.android.com/reference/android/telephony/SmsManager.html
+
+	// @formatter:on
+
+	private enum Methods {
+		getAllMessagesFromIcc, sendDataMessage, sendMultipartTextMessage, sendTextMessage
+	};
+
+	public static List<XHook> getInstances() {
+		List<XHook> listHook = new ArrayList<XHook>();
+		// listHook.add(new XSmsManager(Methods.getAllMessagesFromIcc,
+		// HookManager.cMessages));
+		// listHook.add(new XSmsManager(Methods.sendDataMessage,
+		// HookManager.cCalling));
+		// listHook.add(new
+		// XSmsManager(Methods.sendMultipartTextMessage,HookManager.cCalling));
+		// listHook.add(new
+		// XSmsManager(Methods.sendTextMessage,HookManager.cCalling));
+		listHook.add(new XSmsManager(Methods.getAllMessagesFromIcc,
+				HookManager.cReadMessage));
+		listHook.add(new XSmsManager(Methods.sendDataMessage,
+				HookManager.cSendMessage));
+		listHook.add(new XSmsManager(Methods.sendMultipartTextMessage,
+				HookManager.cSendMessage));
+		listHook.add(new XSmsManager(Methods.sendTextMessage,
+				HookManager.cSendMessage));
+		return listHook;
+	}
+
+	@Override
+	protected void before(XParam param) throws Throwable {
+		if (mMethod == Methods.sendDataMessage
+				|| mMethod == Methods.sendMultipartTextMessage
+				|| mMethod == Methods.sendTextMessage) {
+			if (isRestricted(param))
+				param.setResult(null);
+		}
+	}
+
+	@Override
+	protected void after(XParam param) throws Throwable {
+		if (mMethod != Methods.sendDataMessage
+				&& mMethod != Methods.sendMultipartTextMessage
+				&& mMethod != Methods.sendTextMessage)
+			if (mMethod == Methods.getAllMessagesFromIcc) {
+				if (param.getResult() != null && isRestricted(param))
+					param.setResult(new ArrayList<SmsMessage>());
+			} else
+				Util.log(this, Log.WARN,
+						"Unknown method=" + param.method.getName());
+	}
+}

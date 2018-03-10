@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="isc.whu.defender"
+    android:installLocation="internalOnly"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="10"
+        android:targetSdkVersion="19" />
+
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.SYSTEM_OVERLAY_WINDOW" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <application
+        android:name=".XDroidDefender"
+        android:allowBackup="false"
+        android:icon="@drawable/app_icon"
+        android:label="@string/app_name"
+        android:theme="@style/CustomTheme.Light" >
+        <meta-data
+            android:name="xposedmodule"
+            android:value="true" />
+        <meta-data
+            android:name="xposeddescription"
+            android:value="XDroid Defender for Malware Detection" />
+        <meta-data
+            android:name="xposedminversion"
+            android:value="30" />
+
+        <activity
+            android:name=".InitActivity"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" >
+            <intent-filter>
+                            <!--    
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+                                -->
+            </intent-filter>
+        </activity>
+
+        <!-- show guidance when first started -->
+        <activity android:name=".GuideViewActivity" >
+        </activity>
+        <activity
+            android:name="isc.whu.defender.MainActivity"
+            android:launchMode="singleTop"
+            android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" >
+            <intent-filter>
+
+
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+
+            </intent-filter>
+        </activity>
+
+        <!-- 启动项管理 -->
+        <activity android:name=".bootmgr.BootmgrActivity" />
+
+        <!-- 流量监控 -->
+        <activity android:name=".trafmon.MonitorActivity" />
+        <activity android:name=".trafmon.TrafficActivity" />
+
+        <receiver android:name=".trafmon.AlarmReceiver" >
+        </receiver>
+
+        <!-- 网络连接权限管理模块 -->
+        <activity
+            android:name=".netwall.NetwallActivity"
+            android:label="@string/netwall_title" >
+        </activity>
+
+        <receiver android:name=".netwall.PackageRemovedReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+
+                <data android:scheme="package" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+        <!-- 恶意软件检测 -->
+        <activity
+            android:name=".scanner.DetectionActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTop" />
+        <!-- 行为日志 -->
+        <activity
+            android:name=".ActivityUsage"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTop" />
+
+        <!-- 设置界面 -->
+        <activity
+            android:name=".SettingsActivity"
+            android:launchMode="singleTop" />
+
+        <!-- 软件管理 -->
+        <activity
+            android:name=".softmgr.SoftmgrActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTop"
+            android:theme="@style/CustomTheme.Light" />
+        <activity
+            android:name=".softmgr.SoftDetail"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:launchMode="singleTop"
+            android:theme="@style/CustomTheme.Light" >
+            <intent-filter>
+                <action android:name="isc.whu.defender.softmgr.action.APPLICATION" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!-- 统计流量并绘制统计图 -->
+        <activity android:name="org.achartengine.GraphicalActivity" />
+
+        <!-- 防盗策略 -->
+        <activity android:name=".policymgr.PolicyActivity" />
+
+        <!-- 监听开机广播 -->
+        <receiver android:name=".BootReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <!-- 监听新程序的安装 -->
+        <receiver android:name=".scanner.InstallReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+                <action android:name="android.intent.action.PACKAGE_INSTALL" />
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".xmonitor.PackageChange" >
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+                <action android:name="android.intent.action.PACKAGE_REPLACED" />
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name=".policymgr.AdminDeviceReceiver"
+            android:permission="android.permission.BIND_DEVICE_ADMIN" >
+            <meta-data
+                android:name="android.app.device_admin"
+                android:resource="@xml/device_admin" />
+
+            <intent-filter android:priority="10000" >
+                <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".policymgr.SmsReceiver" >
+            <intent-filter android:priority="10000" >
+                <action android:name="android.provider.Telephony.SMS_RECEIVED" />
+            </intent-filter>
+        </receiver>
+
+        <service android:name=".proactive.ProactiveService" >
+        </service>
+        <service android:name="isc.whu.defender.scanner.SVMScanner" >
+        </service>
+        <service
+            android:name=".traffic.TrafficMonitorService"
+            android:enabled="true" >
+        </service>
+    </application>
+
+</manifest>

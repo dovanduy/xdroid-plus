@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string-array name="time_interval">
+		<item>Every 4 hours</item>
+		<item>Every 6 hours</item>
+		<item>Every 12 hours</item>
+	</string-array>
+	
+	<string-array name="protect_levels">
+	    <item>低-仅记录敏感行为</item>
+	    <item>中-敏感行为给出消息提示</item>
+	    <item>高-拦截敏感行为</item>
+	</string-array>
+	
+	<string-array name="protect_levels_value">
+	    <item>0</item>
+	    <item>1</item>
+	    <item>2</item>
+	</string-array>
+	
+    <string-array name="pwd_qualities">
+	    <item>未指定</item>
+	    <item>任意</item>
+	    <item>至少一个数字</item>
+	    <item>至少一个字母/符号</item>
+	    <item>字母数字相结合</item>
+	</string-array>
+	
+    <string-array name="pwd_qualities_val">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+    </string-array>
+</resources>

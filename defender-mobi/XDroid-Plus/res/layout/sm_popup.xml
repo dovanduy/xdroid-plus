@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/sm_popup_layout"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bb_background"
+    android:gravity="fill_vertical"
+    android:orientation="horizontal"
+    android:paddingLeft="6.0sp" >
+
+    <LinearLayout
+        android:id="@+id/sm_popup_allow"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:layout_width="36sp"
+            android:layout_height="36sp"
+            android:layout_gravity="center"
+            android:background="@drawable/sb_left_default"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:src="@drawable/accept" />
+
+        <TextView
+            style="@style/TextAppearance.Small"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/sb_right_default"
+            android:paddingBottom="@dimen/content_padding"
+            android:paddingLeft="@dimen/text_padding"
+            android:paddingRight="@dimen/text_padding"
+            android:paddingTop="@dimen/content_padding"
+            android:text="@string/sm_Action_Accept" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/sm_popup_prompt"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:layout_width="36sp"
+            android:layout_height="36sp"
+            android:layout_gravity="center"
+            android:background="@drawable/sb_left_default"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:src="@drawable/prompt" />
+
+        <TextView
+            style="@style/TextAppearance.Small"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/sb_right_default"
+            android:paddingBottom="@dimen/content_padding"
+            android:paddingLeft="@dimen/text_padding"
+            android:paddingRight="@dimen/text_padding"
+            android:paddingTop="@dimen/content_padding"
+            android:text="@string/sm_Action_Prompt" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/sm_popup_reject"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:layout_width="36sp"
+            android:layout_height="36sp"
+            android:layout_gravity="center"
+            android:background="@drawable/sb_left_default"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:src="@drawable/reject" />
+
+        <TextView
+            style="@style/TextAppearance.Small"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/sb_right_default"
+            android:paddingBottom="@dimen/content_padding"
+            android:paddingLeft="@dimen/text_padding"
+            android:paddingRight="@dimen/text_padding"
+            android:paddingTop="@dimen/content_padding"
+            android:text="@string/sm_Action_Reject" />
+    </LinearLayout>
+
+</LinearLayout>

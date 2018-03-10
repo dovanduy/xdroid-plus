@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main_first_content"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/mid_grey"
+    android:gravity="center_vertical"
+    android:orientation="vertical" >
+
+    <!-- android:background="@color/mid_grey" -->
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/skyblue"
+        android:gravity="center_horizontal"
+        android:paddingBottom="5dp"
+        android:paddingTop="5dp"
+        android:text="@string/mainscreen_title"
+        android:textColor="@color/white"
+        android:textSize="20dp" />
+
+    <!--
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:paddingLeft="20dp"
+    -->
+
+    <FrameLayout
+        android:id="@+id/created"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:id="@+id/mainscreen_scan_view"
+        style="@style/mainscreen_scan_view"
+        android:layout_width="fill_parent"
+        android:layout_height="0.0dip"
+        android:orientation="vertical" >
+
+        <include layout="@layout/mainscreen_scan" />
+    </LinearLayout>
+
+    <FrameLayout
+        style="@style/mainscreen_items_view"
+        android:layout_width="fill_parent"
+        android:layout_height="0.0dip"
+        android:layout_marginLeft="6.0dip"
+        android:layout_marginRight="6.0dip" >
+
+        <isc.whu.defender.MyScrollLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/ScrollLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <!-- 可见部分, 包括功能列表、drawer的handle、部分网格图标 -->
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical" >
+
+                <!-- drawer + 图标网格 -->
+
+                <LinearLayout
+                    android:id="@+id/below"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:orientation="vertical" >
+
+                    <RelativeLayout
+                        android:id="@+id/mainscreen_drawer_handle"
+                        android:layout_width="fill_parent"
+                        android:layout_height="40.0dip"
+                        android:gravity="center_vertical"
+                        android:visibility="visible" >
+                 
+                        <!-- drawer柄 -->
+
+                        <LinearLayout
+                            android:id="@+id/center"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerHorizontal="true"
+                            android:layout_centerVertical="true"
+                            android:gravity="center"
+                            android:orientation="horizontal" >
+
+                         
+                        </LinearLayout>
+
+                        <!-- 隐藏的文字 -->
+
+                        <TextView
+                            android:id="@+id/mainscreen_drawer_info_left"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:layout_centerVertical="true"
+                            android:layout_toLeftOf="@id/center"
+                            android:gravity="center"
+                            android:text="@string/mainscreen_drawer_info_left"
+                            android:textColor="@color/grey"
+                            android:visibility="invisible" />
+
+                        <TextView
+                            android:id="@+id/mainscreen_drawer_info_right"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_toRightOf="@id/center"
+                            android:gravity="center"
+                            android:text="@string/mainscreen_drawer_info_right"
+                            android:textColor="@color/grey"
+                            android:visibility="invisible" />
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <!-- 显示功能列表 -->
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_above="@+id/below"
+                    android:layout_marginBottom="2.0dip" >
+
+                    <include layout="@layout/mainscreen_list" />
+                </LinearLayout>
+            </RelativeLayout>
+        </isc.whu.defender.MyScrollLayout>
+    </FrameLayout>
+
+</LinearLayout>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
+	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
+	<classpathentry exported="true" kind="lib" path="lib/AndroidHiddenAPI.jar"/>
+	<classpathentry exported="true" kind="lib" path="libs/libsuperuser-185868.jar"/>
+	<classpathentry exported="true" kind="lib" path="libs/preference-fragment-compat.jar"/>
+	<classpathentry exported="true" kind="lib" path="E:/Sai/项目代码/项目验收/android端代码/code/android-support-v7-appcompat/bin/android-support-v7-appcompat.jar"/>
+	<classpathentry exported="true" kind="lib" path="E:/Sai/项目代码/项目验收/android端代码/code/XDroid-Plus/lib/full_framework_15.jar"/>
+	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.DEPENDENCIES"/>
+	<classpathentry exported="true" kind="lib" path="lib/XposedBridgeApi-54.jar"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="gen"/>
+	<classpathentry kind="output" path="bin/classes"/>
+</classpath>

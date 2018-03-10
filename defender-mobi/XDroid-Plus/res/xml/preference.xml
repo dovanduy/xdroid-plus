@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <isc.whu.defender.InstallPreference
+        android:persistent="false"
+        android:key="framework"/>
+
+    <PreferenceCategory android:title="功能配置" >
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="enable_auto_boot"
+            android:summary="开机自动启动"
+            android:title="开机启动" />
+    </PreferenceCategory>
+
+</PreferenceScreen>
